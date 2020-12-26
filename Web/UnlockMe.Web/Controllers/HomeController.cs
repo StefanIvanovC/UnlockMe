@@ -1,29 +1,35 @@
-﻿namespace UnlockMe.Web.Controllers
+﻿using System.Diagnostics;
+
+using UnlockMe.Web.ViewModels;
+
+using Microsoft.AspNetCore.Mvc;
+using UnlockMe.Web.ViewModels.Home;
+using UnlockMe.Data;
+using System.Linq;
+using UnlockMe.Data.Common.Repositories;
+using UnlockMe.Data.Models;
+
+namespace UnlockMe.Web.Controllers
 {
-    using System.Diagnostics;
-
-    using UnlockMe.Web.ViewModels;
-
-    using Microsoft.AspNetCore.Mvc;
-    using UnlockMe.Web.ViewModels.Home;
-    using UnlockMe.Data;
-    using System.Linq;
-
     public class HomeController : BaseController
     {
-        private readonly ApplicationDbContext db;
+        private readonly IDeletableEntityRepository<Profile> profilesRepository;
+        private readonly IRepository<Image> imagesRepository;
 
-        public HomeController(ApplicationDbContext db)
+        public HomeController(
+            IDeletableEntityRepository<Profile> profilesRepository,
+            IRepository<Image> imagesRepository)
         {
-            this.db = db;
+            this.profilesRepository = profilesRepository;
+            this.imagesRepository = imagesRepository;
         }
 
         public IActionResult Index()
         {
             var viewModel = new IndexViewModel
             {
-                ProfilesCount = this.db.Profiles.Count(),
-                PicturesCount = this.db.Images.Count(),
+                ProfilesCount = this.profilesRepository.All().Count(),
+                PicturesCount = this.imagesRepository.All().Count(),
             };
 
             return this.View(viewModel);
