@@ -1,22 +1,26 @@
 ﻿@model UnlockMe.Web.ViewModels.ProfilesInputModels.CreateProfileInputModel;
-
-<h1>Add new profile</h1>
+@{ 
+    this.ViewData["Title"] = "Add new profile";
+}
+<h1>@this.ViewData["Title"]</h1>
 
 <form method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
         <label asp-for="Name"></label>
         <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="bg-danger"></span>
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Years"></label>
         <input asp-for="Years" class="form-control" />
-        <span asp-validation-for="Years" class="bg-danger"></span>
+        <span asp-validation-for="Years" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="AddedByUserId"></label>
         <input asp-for="AddedByUserId" class="form-control" />
-        <span asp-validation-for="AddedByUserId" class="bg-danger"></span>
+        <span asp-validation-for="AddedByUserId" class="text-danger"></span>
     </div>
+
+    <input type="submit" class="btn-success" />
 </form>

@@ -20,10 +20,10 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.View();
+                return this.View(input);
             }
 
-            //TODO REDIRECT USER TO THE PROFILE 
+            //TODO REDIRECT USER TO THE 
             return this.Redirect("/");
         }
     }
