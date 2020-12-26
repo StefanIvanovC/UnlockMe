@@ -27,6 +27,7 @@
                           {
                               new RolesSeeder(),
                               new SettingsSeeder(),
+                              new ProfileSeeder(),
                           };
 
             foreach (var seeder in seeders)
