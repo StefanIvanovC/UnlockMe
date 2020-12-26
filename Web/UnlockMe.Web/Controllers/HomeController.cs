@@ -1,16 +1,15 @@
-﻿using System.Diagnostics;
-
-using UnlockMe.Web.ViewModels;
-
-using Microsoft.AspNetCore.Mvc;
-using UnlockMe.Web.ViewModels.Home;
-using UnlockMe.Data;
-using System.Linq;
-using UnlockMe.Data.Common.Repositories;
-using UnlockMe.Data.Models;
-
-namespace UnlockMe.Web.Controllers
+﻿namespace UnlockMe.Web.Controllers
 {
+    using System.Diagnostics;
+    using System.Linq;
+
+    using Microsoft.AspNetCore.Mvc;
+    using UnlockMe.Data;
+    using UnlockMe.Data.Common.Repositories;
+    using UnlockMe.Data.Models;
+    using UnlockMe.Web.ViewModels;
+    using UnlockMe.Web.ViewModels.Home;
+
     public class HomeController : BaseController
     {
         private readonly IDeletableEntityRepository<Profile> profilesRepository;
