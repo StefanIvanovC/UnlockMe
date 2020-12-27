@@ -1,10 +1,11 @@
 ﻿namespace UnlockMe.Web.Controllers
 {
-    using Microsoft.AspNetCore.Mvc;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Mvc;
     using UnlockMe.Web.ViewModels.ProfilesInputModels;
 
     public class ProfilesController : Controller
@@ -22,6 +23,7 @@
             {
                 return this.View(input);
             }
+
 
             //TODO REDIRECT USER TO THE 
             return this.Redirect("/");

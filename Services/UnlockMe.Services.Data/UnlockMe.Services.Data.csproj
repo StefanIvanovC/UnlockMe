@@ -24,4 +24,13 @@
     <ProjectReference Include="..\UnlockMe.Services.Mapping\UnlockMe.Services.Mapping.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="IProfileService.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="ProfileService.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
 </Project>
