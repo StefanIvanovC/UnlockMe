@@ -1,0 +1,30 @@
+﻿
+@{
+    this.ViewData["Title"] = "All Profiles in UnlockMe";
+}
+
+<h1>@this.ViewData["Title"]</h1>
+<h2>You can chose from: </h2>  
+<hr />
+<div class="row">
+    @for (int i = 0; i < 12; i++)
+    {
+        <div class="media col-md-3">
+            <img class="mr-3" src="..." alt="Generic placeholder image">
+            <div class="media-body">
+                <h5 class="mt-0">Media heading</h5>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+        </div>
+    }
+</div>
+<hr />
+<nav aria-label="Page navigation example">
+    <ul class="pagination offset-4">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+</nav>

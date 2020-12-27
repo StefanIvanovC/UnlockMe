@@ -7,7 +7,9 @@
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using UnlockMe.Data.Models;
     using UnlockMe.Services.Data;
     using UnlockMe.Web.ViewModels.ProfilesInputModels;
 
@@ -15,10 +17,12 @@
     {
 
         private readonly IProfileServicecs profileServicecs;
+        private readonly UserManager<ApplicationUser> userManager;
 
-        public ProfilesController(IProfileServicecs profileService)
+        public ProfilesController(IProfileServicecs profileService, UserManager<ApplicationUser> userManager)
         {
             this.profileServicecs = profileService;
+            this.userManager = userManager;
         }
 
         [Authorize]
@@ -31,16 +35,22 @@
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Create(CreateProfileInputModel input)
+        public async Task<IActionResult> Create(CreateProfileInputModel input, string userId)
         {
+            var user = await this.userManager.GetUserAsync(this.User);
             if (!this.ModelState.IsValid)
             {
                 return this.View(input);
             }
 
-            await this.profileServicecs.CreateAsync(input);
+            await this.profileServicecs.CreateAsync(input, userId);
             //TODO REDIRECT USER TO THE INFOPAGE
             return this.Redirect("/");
+        }
+
+        public IActionResult All (int id)
+        {
+            return this.View();
         }
     }
 }

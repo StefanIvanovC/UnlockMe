@@ -8,6 +8,6 @@
 
     public interface IProfileServicecs
     {
-        Task CreateAsync(CreateProfileInputModel input);
+        Task CreateAsync(CreateProfileInputModel input, string userId);
     }
 }

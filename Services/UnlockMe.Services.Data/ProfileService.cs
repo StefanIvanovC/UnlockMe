@@ -18,11 +18,14 @@
             this.profilesRepository = profilesRepository;
         }
 
-        public async Task CreateAsync(CreateProfileInputModel input)
+        public async Task CreateAsync(CreateProfileInputModel input, string userId)
         {
-            var profile = new Profile();
-            profile.Name = input.Name;
-            profile.Years = input.Years;
+            var profile = new Profile
+            {
+                Name = input.Name,
+                Years = input.Years,
+                AddedByUserId = userId,
+            };
 
             await this.profilesRepository.AddAsync(profile);
             await this.profilesRepository.SaveChangesAsync();
