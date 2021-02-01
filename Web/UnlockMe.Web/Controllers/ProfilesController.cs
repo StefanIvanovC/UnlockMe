@@ -48,9 +48,13 @@
             return this.Redirect("/");
         }
 
-        public IActionResult All (int id)
+        public IActionResult All(int id)
         {
-            return this.View();
+            var viewModel = new ProfilesListViewModel
+            {
+                PageNumber = id,
+        };
+            return this.View(viewModel);
         }
     }
 }
