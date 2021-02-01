@@ -6,7 +6,7 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome to</h1>
-    <img src="~/images/UnlockMeTransparentLogo.png" alt="UnlockMe Logo Picture" style="width: 50%; height: auto;"/>
+    <img src="~/images/UnlockMeTransparentLogo.png" alt="UnlockMe Logo Picture" style="width: 50%; height: auto;" />
     <div class="col-md-4 offset-md-4">
         <p>UnlockMe have: </p>
         <ul class="list-group">
@@ -14,5 +14,19 @@
             <li class="list-group-item bg-info">Total uploaded pictures: @Model.PicturesCount</li>
         </ul>
     </div>
+    <br>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>
+            Uploud picture from <a href="https://localhost:44319/Profiles/Create">HERE!</a>
+        </p>
+    }
+    else
+    {
+        <p>
+            <a href="https://localhost:44319/Identity/Account/Register">Registeer now</a> and start making money from your pictures!
+        </p>
+    }
+
 </div>
 

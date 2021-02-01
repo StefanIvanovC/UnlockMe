@@ -53,7 +53,7 @@
             var viewModel = new ProfilesListViewModel
             {
                 PageNumber = id,
-        };
+            };
             return this.View(viewModel);
         }
     }
