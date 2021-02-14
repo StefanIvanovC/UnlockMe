@@ -46,24 +46,32 @@
             </div>
         </nav>
     </header>
-    
+
     <div class="container">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
             @this.RenderBody()
         </main>
     </div>
-    
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            <a target="_blank" title="follow us on instagram" href="https://www.instagram.com/PLACEHOLDER"><img alt="follow us on instagram" src="https://c866088.ssl.cf3.rackcdn.com/assets/badgeinstagram.png" border=0></a>
-            <a target="_blank" title="follow me on facebook" href="https://m.facebook.com/UnlockMe-103585441402970"><img alt="follow me on facebook" src="https://c866088.ssl.cf3.rackcdn.com/assets/badgefacebook.png" border=0></a>
-             &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            <p>
-                Send us Email 
-            </p>
-        </div>
-    </footer>
+
+    <div>
+        <footer class="border-bottom-0 text-muted">
+            <div class="container alert-danger">
+                <hr>
+                <p>
+                    <a target="_blank" class="addMore" title="Follow UnlockMe In Instagram" href="https://www.instagram.com/PLACEHOLDER"><img alt="follow us on instagram" src="https://c866088.ssl.cf3.rackcdn.com/assets/badgeinstagram.png" border=0></a>
+                    <a target="_blank" class="addMore" title="Follow UnlockMe In Facebook" href="https://m.facebook.com/UnlockMe-103585441402970"><img alt="follow me on facebook" src="https://c866088.ssl.cf3.rackcdn.com/assets/badgefacebook.png" border=0></a>
+                </p>
+                <p>
+                    &copy; 2020 - @DateTime.Now.Year - @GlobalConstants.SystemName - All Rights Reserved. - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </p>
+                <p>
+                    Send us Email
+                </p>
+                <hr>
+            </div>
+        </footer>
+    </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
