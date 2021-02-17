@@ -9,7 +9,7 @@
     {
         [Required]
         [MinLength(4)]
-        public string Name { get; set; }
+        public string Title{ get; set; }
 
         [Required]
         [Range(0, 99)]

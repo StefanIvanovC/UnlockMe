@@ -22,7 +22,7 @@
         {
             var profile = new Profile
             {
-                Name = input.Name,
+                Name = input.Title,
                 Years = input.Years,
                 AddedByUserId = userId,
             };

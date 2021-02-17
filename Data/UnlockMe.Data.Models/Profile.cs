@@ -21,7 +21,8 @@ namespace UnlockMe.Data.Models
 
         public virtual ApplicationUser AddedByUser { get; set; }
 
-        public virtual ICollection<Image> Images {get; set;}
+        public virtual ICollection<Image> Images {get; set; }
 
+        public string Title { get; set; }
     }
 }

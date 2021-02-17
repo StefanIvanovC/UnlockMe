@@ -7,7 +7,7 @@ namespace UnlockMe.Web.ViewModels
         [Required]
         [MaxLength(30)]
         [MinLength(3)]
-        public string Title { get; set; }
+        public string Name { get; set; }
 
         [Required]
         [MaxLength(100)]

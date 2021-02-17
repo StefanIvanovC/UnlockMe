@@ -24,6 +24,8 @@
         {
         }
 
+        public DbSet<Post> Posts { get; set; }
+
         public DbSet<Setting> Settings { get; set; }
 
         public DbSet<Profile> Profiles { get; set; }

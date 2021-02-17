@@ -44,9 +44,16 @@
             }
 
             await this.profileServicecs.CreateAsync(input, userId);
-            //TODO REDIRECT USER TO THE INFOPAGE
-            return this.Redirect("/");
+            // IF model state is true redirect to ThankYou
+            return this.Redirect("ThankYou");
+
         }
+
+        public IActionResult ThankYou()
+        {
+            return this.View();
+        }
+
 
         public IActionResult All(int id)
         {
