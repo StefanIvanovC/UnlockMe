@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UnlockMe.Data;
 
 namespace UnlockMe.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210217200220_AddInitialModels")]
+    partial class AddInitialModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -508,7 +510,7 @@ namespace UnlockMe.Data.Migrations
             modelBuilder.Entity("UnlockMe.Data.Models.Post", b =>
                 {
                     b.HasOne("UnlockMe.Data.Models.ApplicationUser", "User")
-                        .WithMany("Posts")
+                        .WithMany()
                         .HasForeignKey("UserId");
 
                     b.Navigation("User");
@@ -528,8 +530,6 @@ namespace UnlockMe.Data.Migrations
                     b.Navigation("Claims");
 
                     b.Navigation("Logins");
-
-                    b.Navigation("Posts");
 
                     b.Navigation("Roles");
                 });
