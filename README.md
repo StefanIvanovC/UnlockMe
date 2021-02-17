@@ -1,2 +1,2 @@
 # UnlockMe
-UnlockMe is ASP.NET Web site is social media site with paid pictures content
+UnlockMe is ASP.NET is social media, with paid pictures content.
