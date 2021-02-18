@@ -32,6 +32,9 @@
                         @if (this.User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Post" asp-action="Add">Add Post!</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Profiles" asp-action="Create">Create Post</a>
                             </li>
                             <li class="nav-item">
