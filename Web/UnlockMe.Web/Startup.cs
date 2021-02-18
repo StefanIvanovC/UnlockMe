@@ -50,7 +50,7 @@
             services.AddControllersWithViews(
                 options =>
                     {
-                        options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+                        options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()); // Defence from CSEF atack
                     }).AddRazorRuntimeCompilation();
             services.AddRazorPages();
             services.AddDatabaseDeveloperPageExceptionFilter();

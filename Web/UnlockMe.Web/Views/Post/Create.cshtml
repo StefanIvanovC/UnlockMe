@@ -1,0 +1,12 @@
+﻿@using UnlockMe.Common
+@model UnlockMe.Web.ViewModels.Post.CreatePostViewModel
+@{
+    this.ViewData["Title"] = "Create New Post";
+}
+<h1>@this.ViewData["Title"]</h1>
+
+<form method="post" asp-action="Create">
+    <input asp-for="Title" />
+    <input asp-for="Description" />
+    <input type="submit" class="btn btn-primary"/>
+</form>
