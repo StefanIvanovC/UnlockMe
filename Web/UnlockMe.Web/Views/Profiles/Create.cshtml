@@ -1,5 +1,5 @@
 ﻿@model UnlockMe.Web.ViewModels.ProfilesInputModels.CreateProfileInputModel;
-@{ 
+@{
     this.ViewData["Title"] = "Create new Post";
 }
 <h1>@this.ViewData["Title"]</h1>
@@ -24,6 +24,7 @@
         <input asp-for="AddedByUserId" class="form-control" />
         <span asp-validation-for="AddedByUserId" class="text-danger"></span>
     </div>
-
-    <input type="submit" class="btn-success" />
+    <div class="btn-group">
+        <input type="submit" class="btn-success" />
+    </div>
 </form>

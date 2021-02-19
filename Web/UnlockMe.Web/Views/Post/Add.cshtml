@@ -11,12 +11,22 @@
         <div class="card col-md-4 p-1" style="width: 18rem;">
             <img src="https://www.maximimages.com/stock-photo/sexy-sun-tanned-exotic-woman-at-the-beach-in-a-swimsuit-with-a-lowered-strap-covering-her-MXI32594.jpg" class="card-img-top" alt="@post.Title">
             <div class="card-body">
-                <h5 class="card-title">@post.Title</h5>
+                <h5 class="card-title">@User.Identity.Name @post.Title</h5>
                 <p class="card-text">@post.Description</p>
-                <a href="#" class="btn btn-primary">Unlock Picture!</a> 
+                <a href="#" class="btn btn-primary">Unlock Picture!</a>
             </div>
         </div>
-     }
+    }
 </div>
+<hr />
+<nav aria-label="Page navigation example">
+    <ul class="pagination offset-4">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+</nav>
 
 
