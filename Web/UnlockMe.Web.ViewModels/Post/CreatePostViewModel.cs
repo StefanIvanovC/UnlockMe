@@ -7,6 +7,7 @@ namespace UnlockMe.Web.ViewModels.Post
 {
     public class CreatePostViewModel
     {
+
         [Required]
         [MinLength(5)]
         [MaxLength(50)]
@@ -16,5 +17,6 @@ namespace UnlockMe.Web.ViewModels.Post
         [MinLength(5)]
         [MaxLength(100)]
         public string Description { get; set; }
+
     }
 }

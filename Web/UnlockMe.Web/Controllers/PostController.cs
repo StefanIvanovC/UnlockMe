@@ -11,6 +11,7 @@
     using UnlockMe.Data;
     using UnlockMe.Data.Common.Repositories;
     using UnlockMe.Data.Models;
+    using UnlockMe.Services.Data;
     using UnlockMe.Web.ViewModels.Post;
 
     public class PostController : BaseController
@@ -18,16 +19,18 @@
         private readonly ApplicationDbContext db;
         private readonly IDeletableEntityRepository<Post> postsRepository;
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly IPostsService postsService;
 
         public PostController(
             ApplicationDbContext db,
             IDeletableEntityRepository<Post> postsRepository,
-            UserManager<ApplicationUser> userManager)
+            UserManager<ApplicationUser> userManager,
+            IPostsService postsService)
         {
             this.db = db;
             this.postsRepository = postsRepository;
             this.userManager = userManager;
-
+            this.postsService = postsService;
         }
 
         public IActionResult Add()
@@ -37,15 +40,21 @@
             {
                 Title = x.Title,
                 Description = x.Description,
+                CreatedOn = x.CreatedOn,
             }).ToList();
             viewModel.Posts = posts;
             return this.View(viewModel);
         }
 
-        public IActionResult ById()
+        public IActionResult ById(int id)
         {
-            //To Do finish redirection must go to this page when user send valid input view model
-            return this.View();
+            var postViewModel = this.postsService.GetById<ByIdPostViewModel>(id);
+            if (postViewModel == null)
+            {
+                return this.NotFound();
+            }
+
+            return this.View(postViewModel);
         }
 
         [Authorize]

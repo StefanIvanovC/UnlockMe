@@ -4,11 +4,11 @@
     using System.Collections.Generic;
     using System.Text;
     using System.Threading.Tasks;
-    using UnlockMe.Web.ViewModels.ProfilesInputModels;
 
-    public interface IProfileServicecs
+    public interface IPostsService
     {
-        Task CreateAsync(CreateProfileInputModel input, string userId);
+        Task<int> CreateAsync(string title, string description, string userId);
 
+        T GetById<T>(int id);
     }
 }

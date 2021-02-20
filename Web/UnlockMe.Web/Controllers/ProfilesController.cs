@@ -63,5 +63,10 @@
             };
             return this.View(viewModel);
         }
+
+        public IActionResult MyProfile()
+        {
+            return this.View();
+        }
     }
 }
