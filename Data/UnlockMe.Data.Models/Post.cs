@@ -13,6 +13,8 @@
             this.Comments = new HashSet<Comment>();
         }
 
+        public string ImageUrl { get; set; }
+
         public string Title { get; set; }
 
         public string Description { get; set; }
@@ -22,5 +24,6 @@
         public virtual ApplicationUser User { get; set; } //The user Id from the Idenntity. 
 
         public virtual ICollection<Comment> Comments { get; set; } //collection of many comments 
+
     }
 }

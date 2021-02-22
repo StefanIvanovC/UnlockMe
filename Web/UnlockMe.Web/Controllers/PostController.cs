@@ -12,6 +12,7 @@
     using UnlockMe.Data.Common.Repositories;
     using UnlockMe.Data.Models;
     using UnlockMe.Services.Data;
+    using UnlockMe.Services.Mapping;
     using UnlockMe.Web.ViewModels.Post;
 
     public class PostController : BaseController
@@ -36,16 +37,20 @@
         public IActionResult Add()
         {
             var viewModel = new PostsViewModel();
-            var posts = this.db.Posts.Select(x => new AddPostViewModel
-            {
-                Title = x.Title,
-                Description = x.Description,
-                CreatedOn = x.CreatedOn,
-            }).ToList();
+            var posts = this.postsRepository.All()
+                .To<AddPostViewModel>()
+                .ToList();
             viewModel.Posts = posts;
             return this.View(viewModel);
         }
 
+        public IActionResult ById()
+        {
+            var byIdpostViewModel = new ByIdPostViewModel();
+            return this.View(byIdpostViewModel);
+        }
+
+        [HttpPost]
         public IActionResult ById(int id)
         {
             var postViewModel = this.postsService.GetById<ByIdPostViewModel>(id);

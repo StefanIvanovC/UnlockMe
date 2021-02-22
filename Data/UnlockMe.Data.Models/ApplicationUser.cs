@@ -4,9 +4,8 @@ namespace UnlockMe.Data.Models
     using System;
     using System.Collections.Generic;
 
-    using UnlockMe.Data.Common.Models;
-
     using Microsoft.AspNetCore.Identity;
+    using UnlockMe.Data.Common.Models;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
@@ -17,6 +16,7 @@ namespace UnlockMe.Data.Models
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
             this.Posts = new HashSet<Post>();
+            this.Comments = new HashSet<Comment>();
         }
 
         // Audit info
@@ -36,5 +36,7 @@ namespace UnlockMe.Data.Models
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
 
         public virtual ICollection<Post> Posts { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

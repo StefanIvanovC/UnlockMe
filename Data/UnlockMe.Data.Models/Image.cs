@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using UnlockMe.Data.Common.Models;
-
-namespace UnlockMe.Data.Models
+﻿namespace UnlockMe.Data.Models
 {
-    public class Image : BaseModel<string>
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    using UnlockMe.Data.Common.Models;
+
+    public class Image : BaseDeletableModel<string>
     {
         public Image()
         {
             this.Id = Guid.NewGuid().ToString();
         }
+
+        public int PostId { get; set; }
+
+        public virtual Post Post { get; set; }
 
         public int ProfileId { get; set; }
 
@@ -22,6 +27,6 @@ namespace UnlockMe.Data.Models
 
         public string Extension { get; set; }
 
-
+        public virtual Comment Comment { get; set; }
     }
 }

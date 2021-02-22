@@ -10,8 +10,8 @@ using UnlockMe.Data;
 namespace UnlockMe.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210217201412_AddInitialMigrate")]
-    partial class AddInitialMigrate
+    [Migration("20210222112223_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

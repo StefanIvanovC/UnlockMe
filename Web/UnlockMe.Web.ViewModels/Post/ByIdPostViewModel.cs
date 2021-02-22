@@ -1,11 +1,10 @@
 ﻿namespace UnlockMe.Web.ViewModels.Post
 {
     using System;
-    using UnlockMe.Data.Common.Models;
     using UnlockMe.Data.Models;
     using UnlockMe.Services.Mapping;
 
-    public class ByIdPostViewModel : BaseDeletableModel<int>
+    public class ByIdPostViewModel : IMapFrom<Post>
     {
         public int Id { get; set; }
 

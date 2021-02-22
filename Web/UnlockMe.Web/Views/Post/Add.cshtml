@@ -10,11 +10,12 @@
     @foreach (var post in Model.Posts)
     {
         <div class="card col-md-4 p-1" style="width: 18rem;">
-            <img src="https://www.maximimages.com/stock-photo/sexy-sun-tanned-exotic-woman-at-the-beach-in-a-swimsuit-with-a-lowered-strap-covering-her-MXI32594.jpg" class="card-img-top" alt="@post.Title">
+            <img src="@post.ImageUrl" height: 100; width: 200; overflow: hidden; class="card-img-top" alt="@post.Title">
             <div class="card-body">
-                <h5 class="card-title"><i class="fas fa-user"></i> @User.Identity.Name @post.Title</h5>S
-                <p class="card-text"><i class="fas fa-align-justify"></i> @post.Description <i class="fas fa-calendar-alt"></i> @post.CreatedOn <i class="fas fa-clock"></i> </p>
-                <a href="#" class="btn btn-primary">Unlock Picture!</a>
+                <h5 class="card-title"><i class="fas fa-user"></i> @post.Title </h5>
+                <p class="card-text"><i class="fas fa-align-justify"></i> @post.Description </p>
+                <p><i class="fas fa-calendar-alt"></i> @post.CreatedOn <i class="fas fa-clock"></i> @post.UserUserName </p>
+                <a href="@post.Url" class="btn btn-primary">Check This Picture!</a>
             </div>
         </div>
     }

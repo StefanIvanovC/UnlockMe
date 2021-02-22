@@ -290,14 +290,26 @@ namespace UnlockMe.Data.Migrations
                     b.Property<string>("AddedByUserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int?>("CommentId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Extension")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
 
                     b.Property<int>("ProfileId")
                         .HasColumnType("int");
@@ -305,6 +317,12 @@ namespace UnlockMe.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AddedByUserId");
+
+                    b.HasIndex("CommentId");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.HasIndex("PostId");
 
                     b.HasIndex("ProfileId");
 
@@ -325,6 +343,9 @@ namespace UnlockMe.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
@@ -480,7 +501,7 @@ namespace UnlockMe.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("UnlockMe.Data.Models.ApplicationUser", "User")
-                        .WithMany()
+                        .WithMany("Comments")
                         .HasForeignKey("UserId");
 
                     b.Navigation("Post");
@@ -494,6 +515,16 @@ namespace UnlockMe.Data.Migrations
                         .WithMany()
                         .HasForeignKey("AddedByUserId");
 
+                    b.HasOne("UnlockMe.Data.Models.Comment", "Comment")
+                        .WithMany()
+                        .HasForeignKey("CommentId");
+
+                    b.HasOne("UnlockMe.Data.Models.Post", "Post")
+                        .WithMany()
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("UnlockMe.Data.Models.Profile", "Profile")
                         .WithMany("Images")
                         .HasForeignKey("ProfileId")
@@ -501,6 +532,10 @@ namespace UnlockMe.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("AddedByUser");
+
+                    b.Navigation("Comment");
+
+                    b.Navigation("Post");
 
                     b.Navigation("Profile");
                 });
@@ -526,6 +561,8 @@ namespace UnlockMe.Data.Migrations
             modelBuilder.Entity("UnlockMe.Data.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Claims");
+
+                    b.Navigation("Comments");
 
                     b.Navigation("Logins");
 
