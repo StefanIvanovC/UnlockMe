@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-using UnlockMe.Services.Mapping;
-using UnlockMe.Data.Models;
-using UnlockMe.Services.Mapping;
-
-namespace UnlockMe.Web.ViewModels.Post
+﻿namespace UnlockMe.Web.ViewModels.Post
 {
-    public class CreatePostViewModel 
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Text;
+
+    using UnlockMe.Data.Models;
+    using UnlockMe.Services.Mapping;
+
+    public class CreatePostViewModel : IMapTo<Post>
     {
 
         [Required]
@@ -21,5 +21,8 @@ namespace UnlockMe.Web.ViewModels.Post
         [MaxLength(100)]
         public string Description { get; set; }
 
+        public string ImageUrl { get; set; }
+
+        public string UserId { get; set; }
     }
 }

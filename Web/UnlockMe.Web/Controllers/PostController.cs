@@ -80,9 +80,10 @@
             var user = await this.userManager.GetUserAsync(this.User);
             var post = new Post
             {
+                UserId = input.UserId,
                 Title = input.Title,
                 Description = input.Description,
-                UserId = user.Id,
+                ImageUrl = input.ImageUrl,
             };
 
             await this.postsRepository.AddAsync(post);
