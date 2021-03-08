@@ -29,6 +29,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Administration" asp-controller="Post" asp-action="Add">Posts Admin</a>
+                            </li>
+                        }
                         @if (this.User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
@@ -37,14 +43,8 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Post" asp-action="Create">Create NEW post</a>
                             </li>
-                            //  <li class="nav-item">
-                            //     <a class="nav-link text-dark" asp-area="" asp-controller="Profiles" asp-action="Create">Create Post</a>
-                            // </li>
-                            // <li class="nav-item">
-                            //     <a class="nav-link text-dark" asp-area="" asp-controller="Profiles" asp-action="All">All Profiles</a>
-                            // </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Earnings" asp-action="Earnings">Earnings <img src="~/images/MoneyIconEarnings.png" alt="UnlockMe Logo Picture" style="width: 25%; height: auto;" /></a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Earnings" asp-action="Earnings">Earnings</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="MyPosts" asp-action="MyPosts">My Posts</a>

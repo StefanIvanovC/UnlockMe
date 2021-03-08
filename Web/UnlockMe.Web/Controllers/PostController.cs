@@ -53,7 +53,8 @@
         [HttpPost]
         public IActionResult ById(int id)
         {
-            var postViewModel = this.postsService.GetById<ByIdPostViewModel>(id);
+            var postViewModel =
+                this.postsService.GetById<ByIdPostViewModel>(id);
             if (postViewModel == null)
             {
                 return this.NotFound();

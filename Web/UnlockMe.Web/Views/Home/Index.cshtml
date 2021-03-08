@@ -17,9 +17,7 @@
     <br>
     @if (User.Identity.IsAuthenticated)
     {
-        <p>
-            Uploud picture from <a href="https://localhost:44319/Profiles/Create">HERE!</a>
-        </p>
+        <a asp-controller="Post" asp-action="Create" class="btn btn-primary">Create NEW Post!</a>
     }
     else
     {

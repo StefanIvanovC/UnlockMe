@@ -25,5 +25,7 @@
 
         public virtual ICollection<Comment> Comments { get; set; } //collection of many comments 
 
+        public virtual ICollection<Post> Posts { get; set; }
+
     }
 }
